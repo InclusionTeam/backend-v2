@@ -5,7 +5,12 @@ const cohorts = [
     { id: 4, starts: '2020-06-01T04:00:00.000Z', ispublished: false }
 ];
 
+const cohort = {
+    "starts": "2020-06-01T04:00:00.000Z",
+    "ispublished": true
+};
 
 module.exports = {
-    cohorts
+    cohorts,
+    cohort
 }
