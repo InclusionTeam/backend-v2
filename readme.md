@@ -2,7 +2,8 @@
 
 ## Running the development version
 * Clone repo and cd into its directory.
-* Run npm install.
+* Run `npm install -g knex`.
+* Run `npm install`.
 * Then run `createdb api-server`
 * Then run the migrations by running `knex migrate:latest`
 * Then seed the database with `knex seed:run`
