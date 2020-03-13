@@ -12,8 +12,8 @@ module.exports = {
     connection: 'postgres://localhost/api-server-test'
   },
 
-  production: {
-    client: 'pg',
-    connection: process.env.DATABASE_URL
-  }
+  // production: {
+  //   client: 'pg',
+  //   connection: process.env.DATABASE_URL
+  // }
 };
