@@ -63,12 +63,15 @@ describe('CRUD cohorts', () => {
                 expect(response.body).to.be.a('object');
                 fixtures.cohort.id = response.body.id;
                 expect(response.body).to.deep.equal(fixtures.cohort);
-            done();
-          });
+                done();
+            });
     });
+
+    // PASSING WITH SYNTAX ERRORS
 
     it('Updates a record', (done) => {
         fixtures.cohort.is_published = false
+        fixtures.cohort.id = 1
         request(app)
             .put('/cohorts/1')
             .send(fixtures.cohort)
@@ -79,26 +82,25 @@ describe('CRUD cohorts', () => {
                 expect(response.body).to.be.a('object');
                 expect(response.body).to.deep.equal(fixtures.cohort);
                 done();
-            }).catch(() => {
-                console.log('Something went wrong');
+            }).catch((e) => {
+                console.log(e);
             });
     });
 
-    // PASSING WITH SYNTAX ERRORS
 
-    // it('Deletes a record', (done) => {
-    //     request(app)
-    //         .delete('/cohorts/1')
-    //         .set('Accept', 'application/json')
-    //         .expect('Content-Type', /json/)
-    //         .expect(200, done())
-    //         .then((response) => {
-    //             expect(response.body).to.be.a('object');
-    //             expect(response.body).to.deep.equal({ deleted: true });
-    //             done();
-    //         }).catch((e) => {
-    //             console.log(e);
-    //         });
-    // });
+    it('Deletes a record', (done) => {
+        request(app)
+            .delete('/cohorts/1')
+            .set('Accept', 'application/json')
+            .expect('Content-Type', /json/)
+            .expect(200, done())
+            .then((response) => {
+                expect(response.body).to.be.a('object');
+                expect(response.body).to.deep.equal({ deleted: true });
+                done();
+            }).catch((e) => {
+                console.log(e);
+            });
+    });
 
 });
