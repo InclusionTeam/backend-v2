@@ -33,6 +33,13 @@ router.get('/:id', isValidId, (req, res, next) => {
     });
 });
 
+router.get('/:id/applications', isValidId, (req, res, next) => {
+    queries.getAllfromCohort(req.params.id).then(cohorts => {
+        res.json(cohorts);
+    });
+
+});
+
 router.post('/', (req, res, next) => {
     if (isValidCohort(req.body)) {
         queries.create(req.body).then(cohorts => {
