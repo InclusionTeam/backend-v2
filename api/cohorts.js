@@ -9,11 +9,11 @@ function isValidId(req, res, next) {
 }
 
 const isValidCohort = (cohort) => {
-    console.log(typeof cohort.starts);
-    const hasDate = typeof cohort.starts == 'string' && cohort.starts.trim() != '';
-    const hasStatus = typeof cohort.ispublished == 'boolean'
-
-    return hasDate && hasStatus;
+    // console.log(typeof cohort.start_date);
+    const hasDate = typeof cohort.start_date == 'string' && cohort.start_date.trim() != '';
+    const hasStatus = typeof cohort.is_published == 'boolean'
+    const hasNickname = typeof cohort.cohort_nickname == 'string'
+    return hasDate && hasStatus && hasNickname;
 }
 
 
