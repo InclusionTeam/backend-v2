@@ -29,7 +29,11 @@ There are two paths called `/cohorts/` and `/applications/`, they follow RESTful
 * DELETE to `/applications/:id` to delete an application.
 
 ## Postman collection:
-Included is a collection containing examples for each route. To import into Postman, click on the import button at the upper left corner and choose the `api-server.postman_collection.json` file. A new collection with sample requests for all the routes will become available.
+Included is a collection containing examples for each route. To import into Postman, click on the import button at the upper left corner and choose the `api-server.postman_collection.json` file. A new collection with sample requests for all the routes will become available:
+
+<p align="center">
+  <img src="requests.png" />
+</p>
 
 ## Running the tests
 Just run `npm test` and wait for the good stuff to happen! :alien:
