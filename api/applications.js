@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const appqueries = require('../db/appqueries');
+const queries = require('../db/queries');
 
 function isValidId(req, res, next) {
     if (!isNaN(req.params.id)) return next();
@@ -14,13 +14,13 @@ const isValidApplication = (application) => {
 }
 
 router.get('/', (req, res) => {
-    appqueries.getAll().then(applications => {
+    queries.getAll('applications').then(applications => {
         res.json(applications);
     });
 });
 
 router.get('/:id', isValidId, (req, res, next) => {
-    appqueries.getOne(req.params.id).then(application => {
+    queries.getOne('applications', req.params.id).then(application => {
         if (application) {
             res.json(application);
         } else {
@@ -29,14 +29,36 @@ router.get('/:id', isValidId, (req, res, next) => {
     });
 });
 
+router.get('/by/:column/:contents', (req, res) => {
+    queries.getWithParams(req.params.column, req.params.contents).then(apps => {
+        res.json(apps);
+    });
+});
+
 router.post('/', (req, res, next) => {
     if (isValidApplication(req.body)) {
-        appqueries.create(req.body).then(application => {
+        queries.create('applications', req.body).then(application => {
             res.json(application[0]);
         });
     } else {
         next(new Error('Invalid application.'));
     }
+});
+
+router.put('/:id', isValidId, (req, res, next) => {
+    if (req.body) {
+        queries.update('applications', req.params.id, req.body).then(applications => {
+            res.json(applications[0]);
+        });
+    } else {
+        next(new Error('Invalid application.'));
+    }
+});
+
+router.delete('/:id', isValidId, (req, res) => {
+    queries.delete('applications', req.params.id).then(() => {
+        res.json({ deleted: true });
+    });
 });
 
 module.exports = router;

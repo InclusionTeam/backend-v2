@@ -18,13 +18,13 @@ const isValidCohort = (cohort) => {
 
 
 router.get('/', (req, res) => {
-    queries.getAll().then(cohorts => {
+    queries.getAll('cohorts').then(cohorts => {
         res.json(cohorts);
     });
 });
 
 router.get('/:id', isValidId, (req, res, next) => {
-    queries.getOne(req.params.id).then(cohort => {
+    queries.getOne('cohorts', req.params.id).then(cohort => {
         if (cohort) {
             res.json(cohort);
         } else {
@@ -37,12 +37,11 @@ router.get('/:id/applications', isValidId, (req, res, next) => {
     queries.getAllfromCohort(req.params.id).then(cohorts => {
         res.json(cohorts);
     });
-
 });
 
 router.post('/', (req, res, next) => {
     if (isValidCohort(req.body)) {
-        queries.create(req.body).then(cohorts => {
+        queries.create('cohorts', req.body).then(cohorts => {
             res.json(cohorts[0]);
         });
     } else {
@@ -51,8 +50,8 @@ router.post('/', (req, res, next) => {
 });
 
 router.put('/:id', isValidId, (req, res, next) => {
-    if (isValidCohort(req.body)) {
-        queries.update(req.params.id, req.body).then(cohorts => {
+    if (req.body) {
+        queries.update('cohorts', req.params.id, req.body).then(cohorts => {
             res.json(cohorts[0]);
         });
     } else {
@@ -61,7 +60,7 @@ router.put('/:id', isValidId, (req, res, next) => {
 });
 
 router.delete('/:id', isValidId, (req, res) => {
-    queries.delete(req.params.id).then(() => {
+    queries.delete('cohorts', req.params.id).then(() => {
         res.json({ deleted: true });
     });
 });

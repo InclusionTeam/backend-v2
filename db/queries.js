@@ -1,22 +1,25 @@
 const knex = require('./knex');
 
 module.exports = {
-    getAll() {
-        return knex('cohorts');
+    getAll(table) {
+        return knex(table);
     },
-    getOne(id) {
-        return knex('cohorts').where('id', id).first();
+    getOne(table, id) {
+        return knex(table).where('id', id).first();
     },
     getAllfromCohort(id) {
-        return knex('applications').where('cohort_id', id)
+        return knex('applications').where('cohort_id', id);
     },
-    create(cohort) {
-        return knex('cohorts').insert(cohort, '*');
+    getWithParams(column, contents) {
+        return knex('applications').where(column, contents);
     },
-    update(id, cohort) {
-        return knex('cohorts').where('id', id).update(cohort, '*');
+    create(table, element) {
+        return knex(table).insert(element, '*');
     },
-    delete(id) {
-        return knex('cohorts').where('id', id).del();
+    update(table, id, element) {
+        return knex(table).where('id', id).update(element, '*');
+    },
+    delete(table, id) {
+        return knex(table).where('id', id).del();
     }
 }
