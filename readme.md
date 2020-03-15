@@ -24,7 +24,7 @@ There are two paths called `/cohorts/` and `/applications/`, they follow RESTful
 * GET `/applications` to get all applications.
 * GET `/applications/:id` to get a specific application.
 * GET `/applications/by/:column/:property` to get all applications by specific criteria.
-* POST to `/aplications/:id` to create a new application.
+* POST to `/aplications` to create a new application.
 * PUT to `/applications/:id` to edit an application.
 * DELETE to `/applications/:id` to delete an application.
 
