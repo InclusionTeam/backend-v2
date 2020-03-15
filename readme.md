@@ -12,7 +12,6 @@
 ## The routes
 There are two paths called `/cohorts/` and `/applications/`, they follow RESTful conventions so you can hit:
 
-
 ### Cohort model:
 * GET `/cohorts` to get all cohorts.
 * GET `/cohorts/:id/applications` to get all the applications for a specific cohort.
@@ -24,11 +23,13 @@ There are two paths called `/cohorts/` and `/applications/`, they follow RESTful
 ### Application model:
 * GET `/applications` to get all applications.
 * GET `/applications/:id` to get a specific application.
+* GET `/applications/by/:column/:property` to get all applications by specific criteria.
 * POST to `/aplications/:id` to create a new application.
+* PUT to `/applications/:id` to edit an application.
+* DELETE to `/applications/:id` to delete an application.
 
-## TODO:
-* Add remaining routes.
-* write tests for Application model.
+## Postman collection:
+Included is a collection containing examples for each route. To import into Postman, click on the import button at the upper left corner and choose the `api-server.postman_collection.json` file. A new collection with sample requests for all the routes will become available.
 
 ## Running the tests
 Just run `npm test` and wait for the good stuff to happen! :alien:

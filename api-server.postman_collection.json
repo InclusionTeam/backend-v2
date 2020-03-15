@@ -1,0 +1,354 @@
+{
+	"info": {
+		"_postman_id": "a682d60b-c656-4a45-b64f-2985eb0637ee",
+		"name": "api-server",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "cohorts",
+			"item": [
+				{
+					"name": "Get all cohorts",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Some Dude\",\n\t\"phone\": \"9175393093\",\n\t\"address\": \"3230 Steuben Ave, apt G3\",\n\t\"city\": \"Bronx\",\n\t\"state\": \"NY\",\n\t\"zip\": \"10467\",\n\t\"birthdate\": \"21 Apr 1985 10:10:00 GMT-0400\",\n\t\"gender\": \"Male\",\n\t\"ethnicity\": \"Hispanic\",\n\t\"linkedin\": \"https://google.com\",\n\t\"github\": \"https://github.com/Thatjohn\",\n\t\"extralink\": \"https://twitter.com/JohnFajardo\",\n\t\"coverletter\": \"Lorem ipsum dolor sit amet\",\n\t\"education\": \"Bachelors degree in journalism\",\n\t\"collegemajor\": \"Journalism\",\n\t\"collegelocation\": \"Caracas, Venezuela\",\n\t\"isemployed\": false,\n\t\"employer\": \"N/A\",\n\t\"military\": false,\n\t\"income\": \"$0-$25,000\",\n\t\"laptop\": true,\n\t\"whyinterested\": \"Because I need a job\",\n\t\"howheard\": \"Heard in Google\",\n\t\"skilllevel\": \"Intermediate\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/cohorts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cohorts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one cohort by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/cohorts/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cohorts",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get applications by cohort",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/cohorts/1/applications",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cohorts",
+								"1",
+								"applications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create new cohort",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"start_date\": \"2020-06-01T04:00:00.000Z\",\n    \"cohort_nickname\": \"Some cohort\",\n    \"is_published\": true\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/cohorts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cohorts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit cohort",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"start_date\": \"2020-06-01T04:00:00.000Z\",\n    \"cohort_nickname\": \"Some cohort\",\n    \"is_published\": false\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/cohorts/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cohorts",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete cohorts",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/cohorts/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cohorts",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "applications",
+			"item": [
+				{
+					"name": "Get all applications",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/applications",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"applications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one application by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/applications/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"applications",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create new application",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cohort_id\": 2,\n    \"name\": \"Bruce Wayne\",\n    \"email\": \"bruce@wayneenterprises.com\",\n    \"phone\": \"(555)555-5555\",\n    \"address\": \"123s some street apt X1\",\n    \"city\": \"Gotham City\",\n    \"state\": \"NY\",\n    \"zip\": \"12345\",\n    \"birth_date\": \"2000-01-01T05:00:00.000Z\",\n    \"gender\": \"female\",\n    \"ethnicity\": \"White AF\",\n    \"linkedin\": \"https://www.linkedin.com/in/batman/\",\n    \"github\": \"https://github.com/batman\",\n    \"extra_link\": \"https://wayneenterprises.com\",\n    \"cover_letter\": \"Lorem Ipsum\",\n    \"highest_degree\": \"Bachelor's degree\",\n    \"college_major\": \"Some major\",\n    \"college_location\": \"New York, NY\",\n    \"is_employed\": true,\n    \"employer\": \"Wayne Enterprises\",\n    \"is_military\": true,\n    \"income\": \"$55,000,000 to $10,000,000,000\",\n    \"has_laptop\": true,\n    \"why_interested\": \"I got bored of fighting crime and I want to build cool stuff\",\n    \"how_heard\": \"Google sent me\",\n    \"skill_level\": \"Ultra advanced\",\n    \"app_status\": \"Under review\",\n    \"reviewer_comments\": \"Only admit if donates\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/applications",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"applications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit application",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"id\": 8,\n        \"cohort_id\": 2,\n        \"name\": \"Bruce Wayne\",\n        \"email\": \"bruce@wayneenterprises.com\",\n        \"phone\": \"(555)555-5555\",\n        \"address\": \"123s some street apt X1\",\n        \"city\": \"Gotham City\",\n        \"state\": \"NY\",\n        \"zip\": \"12345\",\n        \"birth_date\": \"2000-01-01T05:00:00.000Z\",\n        \"gender\": \"female\",\n        \"ethnicity\": \"White AF\",\n        \"linkedin\": \"https://www.linkedin.com/in/batman/\",\n        \"github\": \"https://github.com/batman\",\n        \"extra_link\": \"https://wayneenterprises.com\",\n        \"cover_letter\": \"Lorem Ipsum\",\n        \"highest_degree\": \"Bachelor's degree\",\n        \"college_major\": \"All majors\",\n        \"college_location\": \"New York, NY\",\n        \"is_employed\": true,\n        \"employer\": \"Wayne Enterprises\",\n        \"is_military\": true,\n        \"income\": \"$55,000,000 to $10,000,000,000\",\n        \"has_laptop\": true,\n        \"why_interested\": \"I got bored of fighting crime and I want to build cool stuff\",\n        \"how_heard\": \"Google sent me\",\n        \"skill_level\": \"Ultra advanced\",\n        \"app_status\": \"Under review\",\n        \"reviewer_comments\": \"Only admit if donates\"\n    }"
+						},
+						"url": {
+							"raw": "http://localhost:3000/applications/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"applications",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an application",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/applications/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"applications",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by criteria",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/applications/by/gender/female",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"applications",
+								"by",
+								"gender",
+								"female"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
